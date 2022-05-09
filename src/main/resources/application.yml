@@ -1,0 +1,25 @@
+server:
+error:
+  include-message: always
+  include-binding-errors: always
+auth:
+  jwt:
+    secret: 30faa058f27f690c7e9a098d54ebcfb3d8725bcb85ee7907a2d84c69622229e2
+  endpoints:
+    protected: /hello, /calc/sum, /calc/subtract
+spring:
+  datasource:
+    #d5a1900b5e7876be2e2b95d8c0159634c662f267a0804d32257060a3bad5df5a
+    password: 71742509
+    #jdbc:postgresql://ec2-54-160-109-68.compute-1.amazonaws.com:5432/d52m6n2a8s643h?password=d5a1900b5e7876be2e2b95d8c0159634c662f267a0804d32257060a3bad5df5a&sslmode=require&user=znnctkqalkpewx
+    url: jdbc:postgresql://localhost:5433/testdb
+    #znnctkqalkpewx
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        show-sql: true

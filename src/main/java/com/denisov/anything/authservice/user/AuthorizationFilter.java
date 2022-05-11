@@ -48,7 +48,7 @@ public class AuthorizationFilter extends OncePerRequestFilter {
                 System.out.println(authHeader);
 
 
-                if(authHeader == null || authHeader.isBlank()){
+                if(authHeader == null || authHeader == null){
                     res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 } else if(!checkAuthorization(authHeader)){
                     res.setStatus(HttpServletResponse.SC_FORBIDDEN);

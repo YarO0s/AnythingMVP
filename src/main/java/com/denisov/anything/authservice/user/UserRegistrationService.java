@@ -56,7 +56,7 @@ public class UserRegistrationService {
         ConfirmationTokenEntity confirmationTokenEntity;
         Optional<ConfirmationTokenEntity> opt = tokenRepository.findByToken(token);
 
-        if(opt.isEmpty()){
+        if(!opt.isPresent()){
             return "error: token not found";
         } else {
             confirmationTokenEntity = opt.get();

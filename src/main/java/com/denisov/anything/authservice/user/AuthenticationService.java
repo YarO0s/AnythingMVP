@@ -36,7 +36,7 @@ public class AuthenticationService {
 
             optToken = tokenRepository.findByAppUserId(userEntity); //here
 
-                if (optToken.isEmpty()) {
+                if (optToken == null) {
                     return "error: token not found";
                 }
 

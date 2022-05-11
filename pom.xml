@@ -7,8 +7,8 @@
     <groupId>org.example</groupId>
     <artifactId>anything</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <!--><build>
-        <plugins>
+    <build>
+        <!--><plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -18,7 +18,7 @@
                 </configuration>
             </plugin>
         </plugins><-->
-        <!--><plugins>
+        <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -31,7 +31,7 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-            <plugin>
+            <!--><plugin>
 
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -43,17 +43,9 @@
                         </manifest>
                     </archive>
                 </configuration>
-            </plugin>
+            </plugin><-->
         </plugins>
-    </build><-->
-        <build>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                </plugin>
-            </plugins>
-        </build>
+    </build>
 
         <dependencies>
 

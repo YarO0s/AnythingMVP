@@ -15,8 +15,6 @@ Rsrc/main/java/com/denisov/anything/security/secretencryption/SecretEncryption.j
 Xsrc/main/java/com/denisov/anything/security/secretencryption/BCryptSecretEncryption.java,4\2\422c4533ae9540689817b22411e708a435079581
 w
 Gsrc/main/java/com/denisov/anything/authservice/user/UserDataMapper.java,e\b\eb6738aef7f5e436c2fc261005c0fb0162e65378
-j
-:src/main/java/com/denisov/anything/authservice/Runner.java,e\9\e9099b295ca767efa0657e33e43dc63e244760ca
 m
 =src/main/java/com/denisov/anything/authservice/user/User.java,4\4\4478d996212813d9b82aebf14537b20385b34e33
 Œ

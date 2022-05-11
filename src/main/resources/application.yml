@@ -10,11 +10,11 @@ auth:
 spring:
   datasource:
     #d5a1900b5e7876be2e2b95d8c0159634c662f267a0804d32257060a3bad5df5a
-    password: 71742509
+    password: 70325f11fe5973d8af2245672c9fe5240dabaae3673dd777fba0b86bdf5770a3
     #jdbc:postgresql://ec2-54-160-109-68.compute-1.amazonaws.com:5432/d52m6n2a8s643h?password=d5a1900b5e7876be2e2b95d8c0159634c662f267a0804d32257060a3bad5df5a&sslmode=require&user=znnctkqalkpewx
-    url: jdbc:postgresql://localhost:5433/testdb
+    url: postgres://pacgxchvakxxdd:70325f11fe5973d8af2245672c9fe5240dabaae3673dd777fba0b86bdf5770a3@ec2-3-229-11-55.compute-1.amazonaws.com:5432/dcmcap4dcghv0s
     #znnctkqalkpewx
-    username: postgres
+    username: pacgxchvakxxdd
   jpa:
     hibernate:
       ddl-auto: create-drop

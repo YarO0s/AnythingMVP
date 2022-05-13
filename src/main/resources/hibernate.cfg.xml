@@ -21,7 +21,7 @@
         <property name="hibernate.connection.password">
             password
         </property>
-        <mapping class="com.denisov.anything.steps.RecipeEntity"/>
+        <mapping class="com.denisov.anything.recepies.RecipeEntity"/>
         <mapping class="com.denisov.anything.authservice.confirmation.TokenRepository"/>
     </session-factory>
 </hibernate-configuration>

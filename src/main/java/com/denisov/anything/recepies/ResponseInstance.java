@@ -1,7 +1,5 @@
 package com.denisov.anything.recepies;
 
-import com.denisov.anything.steps.RecipeEntity;
-
 import java.util.ArrayList;
 
 public class ResponseInstance {

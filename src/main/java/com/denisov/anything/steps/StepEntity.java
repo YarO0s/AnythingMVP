@@ -4,7 +4,7 @@ import com.denisov.anything.recepies.RecipeEntity;
 
 import javax.persistence.*;
 
-//@Entity
+@Entity
 @Table(name="set_of_steps")
 public class StepEntity {
 
@@ -13,7 +13,7 @@ public class StepEntity {
     @Column(name="step", unique=false, nullable = false)
     private String step;
 
-    @ManyToOne(targetEntity = com.denisov.anything.recepies.RecipeEntity.class)
+    @ManyToOne
     @JoinColumn(name = "recipe_id", referencedColumnName = "id", nullable =true)
     private RecipeEntity recipeId;
 

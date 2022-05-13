@@ -1,6 +1,4 @@
 
-w
-Gsrc/main/java/com/denisov/anything/authservice/DataMapperInterface.java,3\9\398cadb34d74c114f41da45490e1d018bafa434a
 „
 Tsrc/main/java/com/denisov/anything/authservice/confirmation/ConfirmationService.java,7\0\700fa3831ef01fc87c2b96296cde23ee774701da
 ‚

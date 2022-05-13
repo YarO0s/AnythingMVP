@@ -1,7 +1,14 @@
 package com.denisov.anything.recepies;
 
 import com.denisov.anything.products.ProductEntity;
+import com.denisov.anything.products.ProductRepository;
 import com.denisov.anything.products.ProductService;
+import com.denisov.anything.productset.SetOfProductsEntity;
+import com.denisov.anything.productset.SetOfProductsRepository;
+import com.denisov.anything.productset.SetOfProductsService;
+import com.denisov.anything.steps.StepDefaultService;
+import com.denisov.anything.steps.StepEntity;
+import com.denisov.anything.steps.StepRepository;
 import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 @RestController
 @RequestMapping("recipe")
@@ -18,28 +26,63 @@ public class RecipeController {
 
     private final DefaultRecipeService recipeService;
     private final ProductService productService;
-
+    private final StepDefaultService stepService;
+    private final ProductRepository productRepository;
+    private final SetOfProductsService setOfProductsService;
 
     public RecipeController(DefaultRecipeService recipeService,
-                            ProductService productService){
+                            ProductService productService,
+                            StepDefaultService stepService,
+                            ProductRepository productRepository,
+                            SetOfProductsService setOfProductsService){
         this.recipeService = recipeService;
         this.productService = productService;
+        this.stepService = stepService;
+        this.productRepository = productRepository;
+        this.setOfProductsService = setOfProductsService;
     }
 
+    //TODO: remove all logic from controller to service
     @GetMapping("/getRecipe/byId")
     public String getRecipeById(@RequestParam long id){
         //TODO: create JSON and return with steps and products lists
         ResponseInstance responseInstance = new ResponseInstance();
+        JSONArray resultArray = new JSONArray();
+        JSONObject j = new JSONObject();
         RecipeEntity entity = recipeService.getById(id);
         if(entity == null){
             responseInstance.setResult("error: recipe not found");
-            return new Gson().toJson(responseInstance);
+            j.put("result", "error: recipe not found");
+            j.put("recipe", "");
+            return j.toString();
         } else {
             ArrayList<RecipeEntity> recipeEntity = new ArrayList<RecipeEntity>();
-            recipeEntity.add(entity);
-            responseInstance.setRecipes(recipeEntity);
-            responseInstance.setResult("successful: ");
-            return new Gson().toJson(responseInstance);
+            j.put("result", "successful: ");
+            j.put("name", entity.getName());
+
+
+            ArrayList<StepEntity> steps = new ArrayList<StepEntity>();
+            steps = stepService.getStepsByRecipe(entity);
+            if(steps.isEmpty() || steps.size()==0){
+                j.put("script", "Script for cooking haven't been added yet :(");
+            }
+            String script = "";
+            for(int i = 0; i < steps.size(); i++){
+                script += steps.get(i).getStep() + " ";
+            }
+            j.put("script", script.trim());
+
+
+            ArrayList<ProductEntity> p = setOfProductsService.getProductsIdByRecipe(entity);
+            if(p.size()==0){
+                j.put("products", "Products set haven't been added yet :(");
+            }
+            String productsResult = "";
+            for(ProductEntity productEntity: p){
+                productsResult += productEntity.getProductName() + " ";
+            }
+            j.put("products", productsResult.trim());
+            return j.toString();
         }
     }
 

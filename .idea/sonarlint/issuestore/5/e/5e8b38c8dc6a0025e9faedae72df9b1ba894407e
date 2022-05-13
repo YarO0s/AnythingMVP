@@ -1,5 +1,5 @@
 
-i
-java:S1128"GRemove this unused import 'com.denisov.anything.recepies.RecipeEntity'.(ÐðÆóøÿÿÿÿ8˜­Ô¦‹0
-h
-java:S1128"FRemove this unused import 'org.springframework.stereotype.Repository'.(¦ýÍýüÿÿÿÿ8ˆ¸Ÿž‹0
+b
+java:S1128"GRemove this unused import 'com.denisov.anything.recepies.RecipeEntity'.(ÐðÆóøÿÿÿÿ
+a
+java:S1128"FRemove this unused import 'org.springframework.stereotype.Repository'.(¦ýÍýüÿÿÿÿ

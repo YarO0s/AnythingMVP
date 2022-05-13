@@ -30,6 +30,8 @@ public class StepEntity {
         this.recipeId = recipeId;
     }
 
+    public StepEntity(){}
+
     public long getId() {
         return id;
     }

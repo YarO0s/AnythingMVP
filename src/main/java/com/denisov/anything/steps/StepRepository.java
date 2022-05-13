@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 import java.util.Optional;
 
-@Repository
 public interface StepRepository extends CrudRepository<StepEntity, Long> {
     public Iterable<StepEntity> findByRecipeId(RecipeEntity recipeEntity);
 }

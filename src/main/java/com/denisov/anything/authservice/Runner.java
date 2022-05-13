@@ -13,10 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 //TODO: comments
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class,
-        DataSourceAutoConfiguration.class,
-        DataSourceTransactionManagerAutoConfiguration.class,
-})
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class,})
 @ComponentScan(basePackages = {"com.denisov.anything.security.securityconfig"})
 @ComponentScan(basePackages = {"com.denisov.anything.authservice.user"})
 @ComponentScan(basePackages = {"com.denisov.anything.authservice.token"})

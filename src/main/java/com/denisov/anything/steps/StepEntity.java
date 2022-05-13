@@ -1,7 +1,5 @@
 package com.denisov.anything.steps;
 
-import com.denisov.anything.recepies.RecipeEntity;
-
 import javax.persistence.*;
 
 @Entity

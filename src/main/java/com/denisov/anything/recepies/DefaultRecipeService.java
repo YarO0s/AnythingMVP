@@ -4,6 +4,7 @@ import com.denisov.anything.products.ProductEntity;
 import com.denisov.anything.products.ProductService;
 import com.denisov.anything.productset.SetOfProductsRepository;
 import com.denisov.anything.productset.SetOfProductsService;
+import com.denisov.anything.steps.RecipeEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

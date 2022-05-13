@@ -1,4 +1,4 @@
-package com.denisov.anything.recepies;
+package com.denisov.anything.steps;
 
 import javax.persistence.Table;
 import javax.persistence.Entity;

@@ -3,12 +3,10 @@ package com.denisov.anything.recepies;
 import com.denisov.anything.products.ProductEntity;
 import com.denisov.anything.products.ProductRepository;
 import com.denisov.anything.products.ProductService;
-import com.denisov.anything.productset.SetOfProductsEntity;
-import com.denisov.anything.productset.SetOfProductsRepository;
 import com.denisov.anything.productset.SetOfProductsService;
+import com.denisov.anything.steps.RecipeEntity;
 import com.denisov.anything.steps.StepDefaultService;
 import com.denisov.anything.steps.StepEntity;
-import com.denisov.anything.steps.StepRepository;
 import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 @RestController
 @RequestMapping("recipe")

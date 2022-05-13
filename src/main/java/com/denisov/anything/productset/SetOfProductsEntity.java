@@ -1,7 +1,7 @@
 package com.denisov.anything.productset;
 
 import com.denisov.anything.products.ProductEntity;
-import com.denisov.anything.recepies.RecipeEntity;
+import com.denisov.anything.steps.RecipeEntity;
 
 import javax.persistence.*;
 

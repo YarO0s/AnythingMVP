@@ -1,6 +1,6 @@
 package com.denisov.anything.recepies;
 
-import com.denisov.anything.products.ProductEntity;
+import com.denisov.anything.steps.RecipeEntity;
 
 import java.util.ArrayList;
 

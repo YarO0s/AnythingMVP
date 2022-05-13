@@ -17,8 +17,6 @@ Jsrc/main/java/com/denisov/anything/security/securityconfig/JWTService.java,7\7
 Ssrc/main/java/com/denisov/anything/authservice/user/UserRegistrationController.java,8\a\8ab7570375a09e7d889deff8ab5f78a7a265ef24
 m
 =src/main/java/com/denisov/anything/authservice/user/User.java,4\4\4478d996212813d9b82aebf14537b20385b34e33
-Å
-Qsrc/main/java/com/denisov/anything/authservice/user/AuthenticationController.java,0\d\0d18ba9412c5e7aa100f9f8238fe1d1f44653ef5
 l
 <src/main/java/com/denisov/anything/steps/StepController.java,7\0\70be19c17da160c8e83c761aed2abf52f226b88c
 ~

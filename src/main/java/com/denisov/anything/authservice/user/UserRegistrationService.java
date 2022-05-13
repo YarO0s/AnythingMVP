@@ -1,7 +1,6 @@
 package com.denisov.anything.authservice.user;
 
 import com.denisov.anything.authservice.confirmation.ConfirmationTokenDataMapper;
-import com.denisov.anything.authservice.confirmation.ConfirmationTokenEntity;
 import com.denisov.anything.authservice.confirmation.TokenRepository;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;

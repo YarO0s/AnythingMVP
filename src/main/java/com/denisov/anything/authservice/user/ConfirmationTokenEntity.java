@@ -1,4 +1,4 @@
-package com.denisov.anything.authservice.confirmation;
+package com.denisov.anything.authservice.user;
 
 import com.denisov.anything.authservice.user.UserEntity;
 

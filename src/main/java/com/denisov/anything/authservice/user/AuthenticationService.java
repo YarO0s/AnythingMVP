@@ -1,11 +1,9 @@
 package com.denisov.anything.authservice.user;
 
-import com.denisov.anything.authservice.confirmation.ConfirmationTokenEntity;
 import com.denisov.anything.authservice.confirmation.TokenRepository;
 import com.denisov.anything.security.secretencryption.BCryptSecretEncryption;
 import com.denisov.anything.security.secretencryption.SecretEncryption;
 import com.denisov.anything.security.securityconfig.JWTService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

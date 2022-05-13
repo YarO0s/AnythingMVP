@@ -22,5 +22,6 @@
             password
         </property>
         <mapping class="com.denisov.anything.recepies.RecipeEntity"/>
+        <mapping class="com.denisov.anything.authservice.confirmation.TokenRepository"/>
     </session-factory>
 </hibernate-configuration>

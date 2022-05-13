@@ -13,7 +13,7 @@ public class StepEntity {
     @Column(name="step", unique=false, nullable = false)
     private String step;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = com.denisov.anything.recepies.RecipeEntity.class)
     @JoinColumn(name = "recipe_id", referencedColumnName = "id", nullable =false)
     private RecipeEntity recipeId;
 

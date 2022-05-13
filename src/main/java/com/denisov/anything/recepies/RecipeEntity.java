@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class RecipeEntity {
 
     @Id
+    @Column(name="id")
     private long id;
     @Column(name = "title", nullable = false, unique = true)
     private String name;

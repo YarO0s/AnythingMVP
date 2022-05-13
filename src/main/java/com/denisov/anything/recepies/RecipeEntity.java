@@ -3,10 +3,11 @@ package com.denisov.anything.recepies;
 import javax.persistence.*;
 
 @Entity
-//@Table(name ="recipe")
+@Table(name ="recipe")
 public class RecipeEntity {
 
     @Id
+    @GeneratedValue
     @Column(name="id")
     private long id;
     @Column(name = "title", nullable = false, unique = true)

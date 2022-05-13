@@ -39,8 +39,6 @@ r
 Bsrc/main/java/com/denisov/anything/products/ProductController.java,7\5\75ac6179ab5bb4b32d2c3b3aa46b8ce7b78b98ff
 q
 Asrc/main/java/com/denisov/anything/recepies/RecipeRepository.java,c\0\c08da6962d6dfc41b662bfba07a096e73c0e6035
-p
-@src/main/java/com/denisov/anything/steps/StepDefaultService.java,0\0\00cac34a8470c426c013d15d41d134d72eb4ca66
 o
 ?src/main/java/com/denisov/anything/products/ProductService.java,b\c\bc140ccf92c3a8c840aa5e02b6020f0a560fb9f3
 u

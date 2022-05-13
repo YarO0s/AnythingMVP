@@ -14,7 +14,7 @@ public class StepEntity {
     private String step;
 
     @ManyToOne(targetEntity = com.denisov.anything.recepies.RecipeEntity.class)
-    @JoinColumn(name = "recipe_id", referencedColumnName = "id", nullable =false)
+    @JoinColumn(name = "recipe_id", referencedColumnName = "id", nullable =true)
     private RecipeEntity recipeId;
 
     public RecipeEntity getRecipeId() {

@@ -9,8 +9,6 @@ Rsrc/main/java/com/denisov/anything/security/secretencryption/SecretEncryption.j
 Xsrc/main/java/com/denisov/anything/security/secretencryption/BCryptSecretEncryption.java,4\2\422c4533ae9540689817b22411e708a435079581
 w
 Gsrc/main/java/com/denisov/anything/authservice/user/UserDataMapper.java,e\b\eb6738aef7f5e436c2fc261005c0fb0162e65378
-Œ
-\src/main/java/com/denisov/anything/authservice/confirmation/ConfirmationTokenDataMapper.java,e\f\efe34906b52d4fb6487c30e759c838fdb14210f7
 }
 Msrc/main/java/com/denisov/anything/authservice/user/CalculatorController.java,d\a\dac4d06792c938dca731f76e882d560efca9c409
 w
@@ -27,8 +25,6 @@ l
 <src/main/java/com/denisov/anything/steps/StepController.java,7\0\70be19c17da160c8e83c761aed2abf52f226b88c
 ~
 Nsrc/main/java/com/denisov/anything/authservice/user/AuthenticationService.java,8\1\816dedbd2a9b341334d46a520aaca4c31f251124
-‚
-Rsrc/main/java/com/denisov/anything/authservice/confirmation/ConfirmationToken.java,4\4\44a3a8b39711fa3c6102af0f22e645b7095a4bdf
 €
 Psrc/main/java/com/denisov/anything/authservice/confirmation/TokenRepository.java,7\5\7503f45d8d0c5fc4365e6f2d852ad96459ccf82a
 w

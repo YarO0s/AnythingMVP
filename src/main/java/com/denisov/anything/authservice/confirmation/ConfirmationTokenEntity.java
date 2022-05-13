@@ -5,7 +5,7 @@ import com.denisov.anything.authservice.user.UserEntity;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
+//@Entity
 @Table(name="confirmation_token")
 public class ConfirmationTokenEntity {
 

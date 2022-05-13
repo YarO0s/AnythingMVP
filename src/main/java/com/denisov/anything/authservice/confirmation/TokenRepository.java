@@ -1,6 +1,5 @@
 package com.denisov.anything.authservice.confirmation;
 
-import com.denisov.anything.authservice.user.ConfirmationTokenEntity;
 import com.denisov.anything.authservice.user.UserEntity;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

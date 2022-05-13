@@ -1,5 +1,6 @@
 package com.denisov.anything.authservice.user;
 
+import com.denisov.anything.authservice.confirmation.ConfirmationTokenEntity;
 import com.denisov.anything.authservice.confirmation.TokenRepository;
 import com.denisov.anything.security.secretencryption.BCryptSecretEncryption;
 import com.denisov.anything.security.secretencryption.SecretEncryption;

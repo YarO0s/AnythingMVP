@@ -1,7 +1,6 @@
 package com.denisov.anything.authservice.confirmation;
 
 import com.denisov.anything.authservice.DataMapperInterface;
-import com.denisov.anything.authservice.user.ConfirmationTokenEntity;
 
 public class ConfirmationTokenDataMapper implements DataMapperInterface<ConfirmationTokenEntity, ConfirmationToken>{
     @Override

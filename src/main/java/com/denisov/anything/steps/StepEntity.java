@@ -4,7 +4,7 @@ import com.denisov.anything.recepies.RecipeEntity;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 @Table(name="set_of_steps")
 public class StepEntity {
 

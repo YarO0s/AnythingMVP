@@ -29,8 +29,6 @@ l
 Nsrc/main/java/com/denisov/anything/authservice/user/AuthenticationService.java,8\1\816dedbd2a9b341334d46a520aaca4c31f251124
 ‚
 Rsrc/main/java/com/denisov/anything/authservice/confirmation/ConfirmationToken.java,4\4\44a3a8b39711fa3c6102af0f22e645b7095a4bdf
-ˆ
-Xsrc/main/java/com/denisov/anything/authservice/confirmation/ConfirmationTokenEntity.java,8\a\8a7b659a2e41ab1817d082703494e2cb6dedfc99
 €
 Psrc/main/java/com/denisov/anything/authservice/confirmation/TokenRepository.java,7\5\7503f45d8d0c5fc4365e6f2d852ad96459ccf82a
 w

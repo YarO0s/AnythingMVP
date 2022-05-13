@@ -18,6 +18,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = {"com.denisov.anything.recepies"})
 @ComponentScan(basePackages = {"com.denisov.anything.steps"})
 @ComponentScan(basePackages = {"com.denisov.anything.productset"})
+@ComponentScan(basePackages = {"com.denisov.anything.authservice"})
 
 @EnableJpaRepositories({"com.denisov.anything.recipes","com.denisov.anything.products",
         "com.denisov.anything.authservice.confirmation","com.denisov.anything.authservice.user",

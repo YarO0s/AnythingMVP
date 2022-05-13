@@ -2,8 +2,8 @@ package com.denisov.anything.recepies;
 
 import javax.persistence.*;
 
-@Entity(name="recipeEntity")
-@Table(name ="recipe")
+@Entity
+//@Table(name ="recipe")
 public class RecipeEntity {
 
     @Id

@@ -16,7 +16,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class,})
 @ComponentScan(basePackages = {"com.denisov.anything.security.securityconfig"})
 @ComponentScan(basePackages = {"com.denisov.anything.authservice.user"})
-@ComponentScan(basePackages = {"com.denisov.anything.authservice.token"})
+//@ComponentScan(basePackages = {"com.denisov.anything.authservice.token"})
 @ComponentScan(basePackages = {"com.denisov.anything.products"})
 @ComponentScan(basePackages = {"com.denisov.anything.recepies"})
 @ComponentScan(basePackages = {"com.denisov.anything.steps"})
@@ -29,7 +29,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
                         "com.denisov.anything.productset","com.denisov.anything.steps"})
 
 @EntityScan({"com.denisov.anything.products","com.denisov.anything.steps.RecipeEntity.class","com.denisov.anything.",
-             "com.denisov.anything.authservice.user", "com.denisov.anything.authservice.token.ConfirmationTokenEntity.class",
+             "com.denisov.anything.authservice.user", "com.denisov.anything.authservice.token",
              "com.denisov.anything.steps", "com.denisov.anything.productset"})
 //@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class })
 public class Runner {

@@ -16,7 +16,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class,
         DataSourceAutoConfiguration.class,
         DataSourceTransactionManagerAutoConfiguration.class,
-        HibernateJpaAutoConfiguration.class
 })
 @ComponentScan(basePackages = {"com.denisov.anything.security.securityconfig"})
 @ComponentScan(basePackages = {"com.denisov.anything.authservice.user"})

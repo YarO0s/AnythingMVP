@@ -2,7 +2,7 @@ package com.denisov.anything.recepies;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name="RecipeEntity")
 @Table(name ="recipe")
 public class RecipeEntity {
 

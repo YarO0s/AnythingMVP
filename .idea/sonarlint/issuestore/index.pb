@@ -47,5 +47,3 @@ u
 Esrc/main/java/com/denisov/anything/recepies/DefaultRecipeService.java,2\e\2e4001ed021520fcf8dd2679d7a7e04aed2b16bf
 r
 Bsrc/main/java/com/denisov/anything/products/ProductRepository.java,5\e\5e8b38c8dc6a0025e9faedae72df9b1ba894407e
-m
-=src/main/java/com/denisov/anything/recepies/RecipeEntity.java,b\9\b9d52216054b5881469f568742895e9e252a8a5b

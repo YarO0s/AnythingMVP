@@ -1,6 +1,12 @@
 package com.denisov.anything.recepies;
 
-import javax.persistence.*;
+import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
 
 @Entity
 @Table(name ="recipe")
@@ -21,6 +27,7 @@ public class RecipeEntity {
         this.name = name;
         this.url = url;
         this.description = description;
+
     }
 
     public RecipeEntity(){

@@ -23,10 +23,6 @@ l
 <src/main/java/com/denisov/anything/steps/StepController.java,7\0\70be19c17da160c8e83c761aed2abf52f226b88c
 ~
 Nsrc/main/java/com/denisov/anything/authservice/user/AuthenticationService.java,8\1\816dedbd2a9b341334d46a520aaca4c31f251124
-€
-Psrc/main/java/com/denisov/anything/authservice/confirmation/TokenRepository.java,7\5\7503f45d8d0c5fc4365e6f2d852ad96459ccf82a
-w
-Gsrc/main/java/com/denisov/anything/authservice/user/UserRepository.java,5\d\5d3611bef3267f44d38be6c486e0d51e63014c2a
 r
 Bsrc/main/java/com/denisov/anything/products/ProductController.java,7\5\75ac6179ab5bb4b32d2c3b3aa46b8ce7b78b98ff
 q

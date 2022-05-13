@@ -29,7 +29,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
                         "com.denisov.anything.productset","com.denisov.anything.steps"})
 
 @EntityScan("com.denisov.anything.")
-//@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class })
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class })
 public class Runner {
     public static void main(String[] args){
         SpringApplication.run(Runner.class, args);

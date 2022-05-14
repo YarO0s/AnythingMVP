@@ -99,7 +99,7 @@ public class RecipeController {
     }
 
     @GetMapping("/getRecipes/searchByProducts")
-    public String getRecipesByProducts(@RequestParam String productsArray){
+    public JSONObject getRecipesByProducts(@RequestParam String productsArray){
         //JSONObject result = new JSONObject();
         String result;
         String[] products = productsArray.split(",");
@@ -132,7 +132,7 @@ public class RecipeController {
         result = gson.toJson(response);
 
         System.out.println(result);
-        return result;
+        return new JSONObject(result);
     }
 
     @PostMapping("/new")

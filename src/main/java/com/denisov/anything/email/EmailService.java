@@ -22,7 +22,7 @@ public class EmailService {
         try{
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "utf-8");
-            helper.setText(token, true);
+            mimeMessage.setContent(token, "text/html");
             helper.setTo(recipientAddress);
             helper.setSubject("Confirm your identity at anything :)");
             helper.setFrom("anythingdevteam@gmail.com");

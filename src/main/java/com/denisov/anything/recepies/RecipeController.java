@@ -101,7 +101,7 @@ public class RecipeController {
     @GetMapping("/getRecipes/searchByProducts")
     public String getRecipesByProducts(@RequestParam String productsArray){
         //JSONObject result = new JSONObject();
-        String result;
+        String res;
         String[] products = productsArray.split(",");
         ResponseInstance response = new ResponseInstance();
         ArrayList<ProductEntity> productEntities = productService.selectProductsByName(products);
@@ -110,7 +110,7 @@ public class RecipeController {
         if(productEntities.size()==0 || productEntities == null){
             response.setResult("error: products not found");
             response.setProducts(null);
-            result = new Gson().toJson(response);
+            res = new Gson().toJson(response);
             zeroProductsError = true;
         }
 
@@ -123,15 +123,16 @@ public class RecipeController {
                 response.setResult(response.getResult() + ",  recipes not found");
             }
             response.setRecipes(null);
-            result = new Gson().toJson(response);
+            res = new Gson().toJson(response);
         }
         response.setResult("successful: ");
         response.setRecipes(recipes);
         response.setProducts(null);
         Gson gson = new Gson();
-        result = gson.toJson(response);
-
+        res = gson.toJson(response);
+        String result = "\"recipeset\": " + res;
         System.out.println(result);
+
         return result;
     }
 

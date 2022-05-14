@@ -131,9 +131,10 @@ public class RecipeController {
         Gson gson = new Gson();
         res = gson.toJson(response);
         String result = "\"recipeset\": " + res;
+        JSONObject jsonObject = new JSONObject().put("recipeset", res);
         System.out.println(result);
 
-        return result;
+        return jsonObject.toString();
     }
 
     @PostMapping("/new")

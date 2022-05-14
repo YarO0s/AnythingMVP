@@ -24,3 +24,8 @@ spring:
         dialect:  org.hibernate.dialect.PostgreSQL94Dialect
         format_sql: true
         show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: anythingdevteam@gmail.com
+    password: blzmkvxdkwzacsyl

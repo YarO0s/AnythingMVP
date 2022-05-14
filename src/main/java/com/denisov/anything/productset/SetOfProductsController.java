@@ -4,6 +4,7 @@ import com.denisov.anything.products.ProductEntity;
 import com.denisov.anything.products.ProductRepository;
 import com.denisov.anything.recepies.RecipeEntity;
 import com.denisov.anything.recepies.RecipeRepository;
+import org.json.JSONObject;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,12 +27,23 @@ public class SetOfProductsController {
     }
 
     @PostMapping("new")
-    public void saveProductset(@RequestParam long productId, @RequestParam long recipeId){
-        SetOfProductsEntity setOfProductsEntity = new SetOfProductsEntity();
-        ProductEntity productEntity = productRepository.findById(productId).get();
-        RecipeEntity recipeEntity = recipeRepository.findById(recipeId).get();
-        setOfProductsEntity.setProductId(productEntity);
-        setOfProductsEntity.setRecipeId(recipeEntity);
-        setOfProductsRepository.save(setOfProductsEntity);
+    public String saveProductset(@RequestParam long productId, @RequestParam long recipeId){
+        JSONObject result = new JSONObject().put("result: ", "successful: ");
+        long id = 0;
+        try {
+            SetOfProductsEntity setOfProductsEntity = new SetOfProductsEntity();
+            ProductEntity productEntity = productRepository.findById(productId).get();
+            RecipeEntity recipeEntity = recipeRepository.findById(recipeId).get();
+            setOfProductsEntity.setProductId(productEntity);
+            setOfProductsEntity.setRecipeId(recipeEntity);
+            setOfProductsRepository.save(setOfProductsEntity);
+            id = setOfProductsEntity.getId();
+        } catch (Exception e){
+            e.printStackTrace();
+            result.put("result", "error: ");
+            return result.toString();
+        }
+        result.put("result", "successful: generated id " + id);
+        return result.toString();
     }
 }

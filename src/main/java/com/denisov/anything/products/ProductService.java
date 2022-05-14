@@ -25,8 +25,9 @@ public class ProductService {
         return products;
     }
 
-    public void addProduct(String name){
+    public long addProduct(String name){
         ProductEntity productEntity = new ProductEntity(name);
         productRepository.save(productEntity);
+        return productEntity.getId();
     }
 }

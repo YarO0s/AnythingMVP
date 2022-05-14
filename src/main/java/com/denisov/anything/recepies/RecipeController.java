@@ -140,16 +140,20 @@ public class RecipeController {
                              @RequestParam(name = "description") String description,
                              @RequestParam(name = "url") String url){
         JSONObject jsonObject = new JSONObject().put("result", "successful: ");
+        long id = 0;
         try {
             RecipeEntity recipeEntity = new RecipeEntity();
             recipeEntity.setName(name);
             recipeEntity.setDescription(description);
             recipeEntity.setUrl(url);
             recipeRepository.save(recipeEntity);
+            id = recipeEntity.getId();
         } catch(Exception e){
             e.printStackTrace();
             jsonObject.put("result", "error: unknown error");
+            return jsonObject.toString();
         }
+        jsonObject.put("result", "successful: generated id " + id);
         return jsonObject.toString();
     }
 }

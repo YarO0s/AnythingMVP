@@ -38,4 +38,8 @@ public class ProductEntity {
     public String toString(){
         return id + " " + name + " ";
     }
+
+    public long getId(){
+        return id;
+    }
 }

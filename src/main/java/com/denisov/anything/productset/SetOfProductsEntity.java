@@ -51,4 +51,8 @@ public class SetOfProductsEntity {
     public void setRecipeId(RecipeEntity recipeId) {
         this.recipeId = recipeId;
     }
+
+    public long getId(){
+        return id;
+    }
 }

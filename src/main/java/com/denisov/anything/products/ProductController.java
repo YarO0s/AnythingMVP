@@ -20,15 +20,18 @@ public class ProductController {
         JSONObject result = new JSONObject().put("result", "successful:");
         String str = products;
         String[] productsRequest = str.split(",");
+        long id = 0;
 
         try {
             for(String product : productsRequest) {
-                productService.addProduct(products);
+                id = productService.addProduct(products);
             }
             } catch(Exception e){
             e.printStackTrace();
             result.put("result", "error: unknown error");
+            return result.toString();
         }
+        result.put("result", "successful: generated id: " + id);
         return result.toString();
     }
 }

@@ -10,15 +10,15 @@ auth:
 spring:
   datasource:
     #71742509 -- 70325f11fe5973d8af2245672c9fe5240dabaae3673dd777fba0b86bdf5770a3
-    password: 71742509
+    password: 70325f11fe5973d8af2245672c9fe5240dabaae3673dd777fba0b86bdf5770a3
     #jdbc:postgresql://localhost:5433/testdb -- jdbc:postgres://pacgxchvakxxdd:70325f11fe5973d8af2245672c9fe5240dabaae3673dd777fba0b86bdf5770a3@ec2-3-229-11-55.compute-1.amazonaws.com:5432/dcmcap4dcghv0s
-    url: jdbc:postgresql://localhost:5433/testdb
+    url: jdbc:postgres://pacgxchvakxxdd:70325f11fe5973d8af2245672c9fe5240dabaae3673dd777fba0b86bdf5770a3@ec2-3-229-11-55.compute-1.amazonaws.com:5432/dcmcap4dcghv0s
     #postgres -- pacgxchvakxxdd
-    username: postgres
+    username: pacgxchvakxxdd
   jpa:
     hibernate:
       #create-drop -- validate
-      ddl-auto: validate
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect:  org.hibernate.dialect.PostgreSQL94Dialect

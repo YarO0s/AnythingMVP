@@ -6,14 +6,11 @@ public class ResponseInstance {
 
     private String result;
 
-    private ArrayList<RecipeEntity> recipes;
+    private ArrayList<Recipes> recipes;
 
-    private ArrayList<String> products;
-
-    public ResponseInstance(String result, ArrayList<RecipeEntity> recipes, ArrayList<String> products){
+    public ResponseInstance(String result, ArrayList<Recipes> recipes){
         this.result = result;
         this.recipes = recipes;
-        this.products = products;
     }
 
     public ResponseInstance(){
@@ -27,19 +24,11 @@ public class ResponseInstance {
         this.result = result;
     }
 
-    public ArrayList<RecipeEntity> getRecipes() {
+    public ArrayList<Recipes> getRecipes() {
         return recipes;
     }
 
-    public void setRecipes(ArrayList<RecipeEntity> recipes) {
+    public void setRecipes(ArrayList<Recipes> recipes) {
         this.recipes = recipes;
-    }
-
-    public ArrayList<String> getProducts(){
-        return products;
-    }
-
-    public void setProducts(ArrayList<String> products){
-        this.products = products;
     }
 }

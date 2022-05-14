@@ -29,5 +29,3 @@ Lsrc/main/java/com/denisov/anything/authservice/user/AuthorizationFilter.java,d
 Psrc/main/java/com/denisov/anything/authservice/user/UserRegistrationService.java,b\c\bc98bc9e9fecd62a95be75d24a64134babfd2311
 <
 Procfile.txt,7\6\763823cb0e839ccf009b3ad3dc79550e923d13e1
-p
-@src/main/java/com/denisov/anything/steps/StepDefaultService.java,0\0\00cac34a8470c426c013d15d41d134d72eb4ca66

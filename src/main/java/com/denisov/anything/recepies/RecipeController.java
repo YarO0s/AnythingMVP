@@ -94,7 +94,7 @@ public class RecipeController {
             return result;
         }
         responseInstance.setResult("successful: ");
-        responseInstance.setRecipes(entities);
+        //responseInstance.setRecipes(entities);
         return new Gson().toJson(responseInstance);
     }
 
@@ -103,37 +103,37 @@ public class RecipeController {
         //JSONObject result = new JSONObject();
         String res;
         String[] products = productsArray.split(",");
+
         ResponseInstance response = new ResponseInstance();
+
         ArrayList<ProductEntity> productEntities = productService.selectProductsByName(products);
+
         ArrayList<RecipeEntity> recipes = new ArrayList<RecipeEntity>();
-        boolean zeroProductsError = false;
+        /*boolean zeroProductsError = false;
         if(productEntities.size()==0 || productEntities == null){
             response.setResult("error: products not found");
-            response.setProducts(null);
+
             res = new Gson().toJson(response);
             zeroProductsError = true;
-        }
+        }*/
 
         recipes = recipeService.getAllMatchProducts(productEntities);
+        ArrayList<Recipes> arr = new ArrayList<Recipes>();
+        for(int i = 0; i < recipes.size(); i++){
+            ArrayList<StepEntity> script = new ArrayList<StepEntity>();
+            ArrayList<ProductEntity> product = new ArrayList<ProductEntity>();
+            script = stepService.getStepsByRecipe(recipes.get(i));
+            product = productService.selectProductsByName(products);
 
-        if(recipes.size()==0 || recipes == null){
-            if(zeroProductsError == false) {
-                response.setResult("error: recipes not found");
-            } else {
-                response.setResult(response.getResult() + ",  recipes not found");
-            }
-            response.setRecipes(null);
-            res = new Gson().toJson(response);
+
+            Recipes recipe = new Recipes(script, product, recipes.get(i));
+            arr.add(recipe);
         }
         response.setResult("successful: ");
-        response.setRecipes(recipes);
-        response.setProducts(null);
-        Gson gson = new Gson();
-        recipeset r = new recipeset(response);
-        res = gson.toJson(response);
-        
+        response.setRecipes(arr);
 
-        return res;
+        return new Gson().toJson(response);
+
     }
 
     @PostMapping("/new")

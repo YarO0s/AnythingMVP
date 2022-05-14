@@ -137,7 +137,7 @@ public class RecipeController {
                 if(j !=(product.size() - 1)){
                     p += product.get(i).getProductName() + "\n";
                 } else {
-                    p += product.get(i);
+                    p += product.get(i).getProductName();
                 }
             }
 

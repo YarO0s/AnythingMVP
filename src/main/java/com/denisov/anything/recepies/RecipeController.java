@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("recipe")
+@RequestMapping(value="recipe", produces="application/json")
 public class RecipeController {
 
     private final DefaultRecipeService recipeService;

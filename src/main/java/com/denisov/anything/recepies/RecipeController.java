@@ -134,7 +134,7 @@ public class RecipeController {
         String result = "\"recipeset\": " + res;
         System.out.println(res);
 
-        return result;
+        return res;
     }
 
     @PostMapping("/new")

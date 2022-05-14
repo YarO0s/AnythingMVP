@@ -130,9 +130,8 @@ public class RecipeController {
         response.setProducts(null);
         Gson gson = new Gson();
         recipeset r = new recipeset(response);
-        res = gson.toJson(r);
-        String result = "\"recipeset\": " + res;
-        System.out.println(res);
+        res = gson.toJson(response);
+        
 
         return res;
     }

@@ -23,9 +23,4 @@ public class UserRegistrationController {
     public String confirmUser(@RequestParam("token")String token){
         return userRegistrationService.confirmUser(token);
     }
-
-    @GetMapping("/giveMeString")
-    public String confirmUser(){
-        return "shit";
-    }
 }

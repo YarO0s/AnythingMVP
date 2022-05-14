@@ -9,10 +9,7 @@ import com.denisov.anything.steps.StepEntity;
 import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -25,17 +22,20 @@ public class RecipeController {
     private final StepDefaultService stepService;
     private final ProductRepository productRepository;
     private final SetOfProductsService setOfProductsService;
+    private final RecipeRepository recipeRepository;
 
     public RecipeController(DefaultRecipeService recipeService,
                             ProductService productService,
                             StepDefaultService stepService,
                             ProductRepository productRepository,
-                            SetOfProductsService setOfProductsService){
+                            SetOfProductsService setOfProductsService,
+                            RecipeRepository recipeRepository){
         this.recipeService = recipeService;
         this.productService = productService;
         this.stepService = stepService;
         this.productRepository = productRepository;
         this.setOfProductsService = setOfProductsService;
+        this.recipeRepository = recipeRepository;
     }
 
     //TODO: remove all logic from controller to service
@@ -133,5 +133,23 @@ public class RecipeController {
 
         System.out.println(result);
         return result;
+    }
+
+    @PostMapping("/new")
+    public String saveRecipe(@RequestParam(name = "name") String name,
+                             @RequestParam(name = "description") String description,
+                             @RequestParam(name = "url") String url){
+        JSONObject jsonObject = new JSONObject().put("result", "successful: ");
+        try {
+            RecipeEntity recipeEntity = new RecipeEntity();
+            recipeEntity.setName(name);
+            recipeEntity.setDescription(description);
+            recipeEntity.setUrl(url);
+            recipeRepository.save(recipeEntity);
+        } catch(Exception e){
+            e.printStackTrace();
+            jsonObject.put("result", "error: unknown error");
+        }
+        return jsonObject.toString();
     }
 }

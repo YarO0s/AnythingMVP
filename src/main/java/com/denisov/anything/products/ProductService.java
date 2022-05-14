@@ -24,4 +24,9 @@ public class ProductService {
         }
         return products;
     }
+
+    public void addProduct(String name){
+        ProductEntity productEntity = new ProductEntity(name);
+        productRepository.save(productEntity);
+    }
 }

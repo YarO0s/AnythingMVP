@@ -13,7 +13,13 @@ import javax.persistence.Column;
 public class RecipeEntity {
 
     @Id
-    @GeneratedValue
+    @SequenceGenerator(
+            name = "appUserSequence",
+            sequenceName = "appUserSequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "appUserSequence")
     @Column(name="id")
     private long id;
     @Column(name = "title", nullable = false, unique = true)

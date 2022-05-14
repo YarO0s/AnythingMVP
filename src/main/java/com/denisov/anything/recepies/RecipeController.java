@@ -124,9 +124,24 @@ public class RecipeController {
             ArrayList<ProductEntity> product = new ArrayList<ProductEntity>();
             script = stepService.getStepsByRecipe(recipes.get(i));
             product = productService.selectProductsByName(products);
+            String s = "";
+            for(int j = 0; j < script.size(); j++){
+                if(j != (script.size()-1)) {
+                    s += script.get(i).getStep() + "\n";
+                } else{
+                    s += script.get(i).getStep();
+                }
+            }
+            String p = "";
+            for(int j = 0; j < product.size(); j++){
+                if(j !=(product.size() - 1)){
+                    p += product.get(i).getProductName() + "\n";
+                } else {
+                    p += product.get(i);
+                }
+            }
 
-
-            Recipes recipe = new Recipes(script, product, recipes.get(i));
+            Recipes recipe = new Recipes(s, p, recipes.get(i));
             arr.add(recipe);
         }
         response.setResult("successful: ");

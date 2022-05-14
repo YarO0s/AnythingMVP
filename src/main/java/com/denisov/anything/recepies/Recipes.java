@@ -9,11 +9,11 @@ public class Recipes {
 
     private RecipeEntity recipeEntity;
 
-    private ArrayList<StepEntity> script = new ArrayList<StepEntity>();
+    private String script = new String();
 
-    private ArrayList<ProductEntity> products = new ArrayList<ProductEntity>();
+    private String products = new String();
 
-    public Recipes(ArrayList<StepEntity> script, ArrayList<ProductEntity> products, RecipeEntity recipeEntity){
+    public Recipes(String script, String products, RecipeEntity recipeEntity){
         this.script = script;
         this.products = products;
         this.recipeEntity = recipeEntity;
@@ -23,7 +23,7 @@ public class Recipes {
 
     }
 
-    public void setScript(ArrayList<StepEntity> script){
+    public void setScript(String script){
         this.script = script;
     }
 
@@ -35,15 +35,15 @@ public class Recipes {
         this.recipeEntity = recipeEntity;
     }
 
-    public ArrayList<StepEntity> getScript(){
+    public String getScript(){
         return script;
     }
 
-    public void setProducts(ArrayList<ProductEntity> products){
+    public void setProducts(String products){
         this.products = products;
     }
 
-    public ArrayList<ProductEntity> getProducts(){
+    public String getProducts(){
         return products;
     }
 }

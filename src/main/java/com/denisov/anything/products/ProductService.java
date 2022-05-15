@@ -20,6 +20,8 @@ public class ProductService {
             Optional<ProductEntity> opt = productRepository.findByName(name);
             if(opt.isPresent()){
                 products.add(opt.get());
+            } else {
+                return null;
             }
         }
         return products;

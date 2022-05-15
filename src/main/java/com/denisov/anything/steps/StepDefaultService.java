@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 @Service
 public class StepDefaultService {
@@ -16,11 +17,14 @@ public class StepDefaultService {
 
     public ArrayList<StepEntity> getStepsByRecipe(RecipeEntity recipeEntity){
         ArrayList<StepEntity> steps = new ArrayList<StepEntity>();
-        Iterable<StepEntity> iterable = stepRepository.findByRecipeId(recipeEntity);
-        Collection coll = (Collection<?>) iterable;
-        for(int i = 0; i < coll.size(); i++){
-            steps.add(iterable.iterator().next());
+        Iterator<StepEntity> script = stepRepository.findByRecipeId(recipeEntity).iterator();
+        while(script.hasNext()){
+            steps.add(script.next());
         }
         return steps;
+    }
+
+    public void save(StepEntity step){
+        stepRepository.save(step);
     }
 }

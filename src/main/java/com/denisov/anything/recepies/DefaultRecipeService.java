@@ -4,9 +4,11 @@ import com.denisov.anything.products.ProductEntity;
 import com.denisov.anything.products.ProductService;
 import com.denisov.anything.productset.SetOfProductsRepository;
 import com.denisov.anything.productset.SetOfProductsService;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Optional;
 
 @Service
@@ -39,11 +41,14 @@ public class DefaultRecipeService {
 
     public ArrayList<RecipeEntity> getAll(){
         ArrayList<RecipeEntity> entities = new ArrayList<RecipeEntity>();
-        recipeRepository.findAll().forEach(entities::add);
-        //while(iterable.iterator().hasNext()){
-        //    entities.add(iterable.iterator().next());
-        //}
-        System.out.println(entities);
+        try {
+            Iterator<RecipeEntity> iterableRecipes = recipeRepository.findAll().iterator();
+            while (iterableRecipes.hasNext()) {
+                entities.add(iterableRecipes.next());
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
         return entities;
     }
 
@@ -65,5 +70,13 @@ public class DefaultRecipeService {
             }
         }
         return result;
+    }
+
+    public void save(RecipeEntity recipeEntity){
+        try{
+            recipeRepository.save(recipeEntity);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

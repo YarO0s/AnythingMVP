@@ -18,9 +18,26 @@ spring:
   jpa:
     hibernate:
       #create-drop -- validate
-      ddl-auto: validate
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect:  org.hibernate.dialect.PostgreSQL94Dialect
         format_sql: true
         show-sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: anythingdevteam@gmail.com
+    password: blzmkvxdkwzacsyl
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000

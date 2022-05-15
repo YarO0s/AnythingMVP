@@ -9,6 +9,7 @@ import com.denisov.anything.steps.StepEntity;
 import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -20,156 +21,127 @@ public class RecipeController {
     private final DefaultRecipeService recipeService;
     private final ProductService productService;
     private final StepDefaultService stepService;
-    private final ProductRepository productRepository;
     private final SetOfProductsService setOfProductsService;
-    private final RecipeRepository recipeRepository;
 
     public RecipeController(DefaultRecipeService recipeService,
                             ProductService productService,
                             StepDefaultService stepService,
-                            ProductRepository productRepository,
-                            SetOfProductsService setOfProductsService,
-                            RecipeRepository recipeRepository){
+                            SetOfProductsService setOfProductsService){
         this.recipeService = recipeService;
         this.productService = productService;
         this.stepService = stepService;
-        this.productRepository = productRepository;
         this.setOfProductsService = setOfProductsService;
-        this.recipeRepository = recipeRepository;
     }
 
     //TODO: remove all logic from controller to service
     @GetMapping("/getRecipe/byId")
     public String getRecipeById(@RequestParam long id){
         //TODO: create JSON and return with steps and products lists
-        ResponseInstance responseInstance = new ResponseInstance();
-        JSONArray resultArray = new JSONArray();
-        JSONObject j = new JSONObject();
-        RecipeEntity entity = recipeService.getById(id);
-        if(entity == null){
-            responseInstance.setResult("error: recipe not found");
-            j.put("result", "error: recipe not found");
-            j.put("recipe", "");
-            return j.toString();
-        } else {
-            ArrayList<RecipeEntity> recipeEntity = new ArrayList<RecipeEntity>();
-            j.put("result", "successful: ");
-            j.put("name", entity.getName());
-
-
-            ArrayList<StepEntity> steps = new ArrayList<StepEntity>();
-            steps = stepService.getStepsByRecipe(entity);
-            if(steps.isEmpty() || steps.size()==0){
-                j.put("script", "Script for cooking haven't been added yet :(");
-            }
-            String script = "";
-            for(int i = 0; i < steps.size(); i++){
-                script += steps.get(i).getStep() + " ";
-            }
-            j.put("script", script.trim());
-
-
-            ArrayList<ProductEntity> p = setOfProductsService.getProductsIdByRecipe(entity);
-            if(p.size()==0){
-                j.put("products", "Products set haven't been added yet :(");
-            }
-            String productsResult = "";
-            for(ProductEntity productEntity: p){
-                productsResult += productEntity.getProductName() + " ";
-            }
-            j.put("products", productsResult.trim());
-            return j.toString();
+        JSONObject result = new JSONObject();
+        RecipeEntity recipe = recipeService.getById(id);
+        if(recipe == null){
+            result.put("result", "error: recipes not found");
+            return result.toString();
         }
+        ArrayList<ProductEntity> products = setOfProductsService.getProductsIdByRecipe(recipe);
+        ArrayList<StepEntity> script = stepService.getStepsByRecipe(recipe);
+        result.put("result", "successful");
+        result.put("recipe", new ResponseInstance(recipe, script, products));
+        return result.toString();
     }
 
     @GetMapping("/getRecipe")
     public String getRecipes(){
         ArrayList<RecipeEntity> entities = null;
-        ResponseInstance responseInstance = new ResponseInstance();
-        JSONObject jsonObject = new JSONObject();
+        JSONObject result = new JSONObject();
         entities = recipeService.getAll();
         if (entities == null){
-            responseInstance.setResult("error: service did not return recipies array");
-            String result = new Gson().toJson(responseInstance);
-            return result;
+            result.put("result", "error: recipes not found");
+            return result.toString();
         }
-        responseInstance.setResult("successful: ");
-        //responseInstance.setRecipes(entities);
-        return new Gson().toJson(responseInstance);
+        ArrayList<ResponseInstance> response = new ArrayList<>();
+        for(int i = 0; i < entities.size(); i++){
+           ArrayList<ProductEntity> products = setOfProductsService.getProductsIdByRecipe(entities.get(i));
+           ArrayList<StepEntity> steps = stepService.getStepsByRecipe(entities.get(i));
+           response.add(new ResponseInstance(entities.get(i), steps, products));
+        }
+        result.put("result", "successful: ");
+        result.put("recipes", response);
+        return result.toString();
     }
 
     @GetMapping("/getRecipes/searchByProducts")
     public String getRecipesByProducts(@RequestParam String productsArray){
-        //JSONObject result = new JSONObject();
-        String res;
-        String[] products = productsArray.split(",");
-
-        ResponseInstance response = new ResponseInstance();
-
-        ArrayList<ProductEntity> productEntities = productService.selectProductsByName(products);
-
-        ArrayList<RecipeEntity> recipes = new ArrayList<RecipeEntity>();
-        /*boolean zeroProductsError = false;
-        if(productEntities.size()==0 || productEntities == null){
-            response.setResult("error: products not found");
-
-            res = new Gson().toJson(response);
-            zeroProductsError = true;
-        }*/
-
-        recipes = recipeService.getAllMatchProducts(productEntities);
-        ArrayList<Recipes> arr = new ArrayList<Recipes>();
-        for(int i = 0; i < recipes.size(); i++){
-            ArrayList<StepEntity> script = new ArrayList<StepEntity>();
-            ArrayList<ProductEntity> product = new ArrayList<ProductEntity>();
-            script = stepService.getStepsByRecipe(recipes.get(i));
-            product = productService.selectProductsByName(products);
-            String s = "";
-            for(int j = 0; j < script.size(); j++){
-                if(j != (script.size()-1)) {
-                    s += script.get(i).getStep() + "\n";
-                } else{
-                    s += script.get(i).getStep();
-                }
+        JSONObject result = new JSONObject();
+        ArrayList<ResponseInstance> responseArray = null;
+        try {
+            ArrayList<ProductEntity> products = productService.selectProductsByName(productsArray.split(","));
+            ArrayList<RecipeEntity> recipes = recipeService.getAllMatchProducts(products);
+            responseArray = new ArrayList<ResponseInstance>();
+            for (RecipeEntity recipe : recipes) {
+                ArrayList<ProductEntity> requiredProducts = setOfProductsService.getProductsIdByRecipe(recipe);
+                ArrayList<StepEntity> script = stepService.getStepsByRecipe(recipe);
+                responseArray.add(new ResponseInstance(recipe, script, requiredProducts));
             }
-            String p = "";
-            for(int j = 0; j < product.size(); j++){
-                if(j !=(product.size() - 1)){
-                    p += product.get(i).getProductName() + "\n";
-                } else {
-                    p += product.get(i).getProductName();
-                }
-            }
-
-            Recipes recipe = new Recipes(s, p, recipes.get(i));
-            arr.add(recipe);
+        } catch (Exception e){
+            e.printStackTrace();
+            result.put("result", "error: unknown");
+            return result.toString();
         }
-        response.setResult("successful: ");
-        response.setRecipes(arr);
+        result.put("result", "successful: ");
+        result.put("recipes", responseArray);
 
-        return new Gson().toJson(response);
-
+        return result.toString();
     }
 
     @PostMapping("/new")
     public String saveRecipe(@RequestParam(name = "name") String name,
                              @RequestParam(name = "description") String description,
-                             @RequestParam(name = "url") String url){
-        JSONObject jsonObject = new JSONObject().put("result", "successful: ");
+                             @RequestParam(name = "url") String url,
+                             @RequestParam(name = "products") String products,
+                             @RequestParam(name = "script") String script){
+        JSONObject result = new JSONObject();
+        ArrayList<ProductEntity> productEntities = null;
         long id = 0;
+
         try {
+            if(products != "" && products != null) {
+                String[] productSet = products.split(",");
+                productEntities = productService.selectProductsByName(productSet);
+                if (productEntities == null || productEntities.size() == 0) {
+                    result.put("result: ", "error: specified products does not exist");
+                    return result.toString();
+                }
+
+            }
+
+
             RecipeEntity recipeEntity = new RecipeEntity();
             recipeEntity.setName(name);
             recipeEntity.setDescription(description);
             recipeEntity.setUrl(url);
-            recipeRepository.save(recipeEntity);
+            recipeService.save(recipeEntity);
             id = recipeEntity.getId();
+
+            for (ProductEntity product : productEntities) {
+                setOfProductsService.addProductsToRecipe(recipeEntity, product);
+            }
+
+            if(script != "" && script != null){
+                String[] steps = script.split(",");
+                for(String step : steps) {
+                    stepService.save(new StepEntity(step, recipeEntity));
+                }
+            }
+
         } catch(Exception e){
             e.printStackTrace();
-            jsonObject.put("result", "error: unknown error");
-            return jsonObject.toString();
+            result.put("result", "error: unknown error");
+            return result.toString();
         }
-        jsonObject.put("result", "successful: generated id " + id);
-        return jsonObject.toString();
+
+
+        result.put("result", "successful: generated id " + id);
+        return result.toString();
     }
 }

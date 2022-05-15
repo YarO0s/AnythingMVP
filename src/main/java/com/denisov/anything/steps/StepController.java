@@ -2,16 +2,17 @@ package com.denisov.anything.steps;
 
 import com.denisov.anything.recepies.RecipeEntity;
 import com.denisov.anything.recepies.RecipeRepository;
+import com.google.gson.Gson;
 import org.json.JSONObject;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 @RestController
-@RequestMapping(name="steps")
+@RequestMapping(value="steps", produces="text/json")
 public class StepController {
     private final StepRepository stepRepository;
     private final RecipeRepository recipeRepository;
@@ -25,7 +26,7 @@ public class StepController {
     @PostMapping("/new")
     public String newStep(@RequestParam String step,
                         @RequestParam long id){
-        StepEntity stepEntity = new StepEntity();
+        System.out.println("st");
         RecipeEntity recipeEntity = null;
         JSONObject result = new JSONObject();
         try {
@@ -38,10 +39,23 @@ public class StepController {
             result.put("result", "error: correlated recipe not found");
             return result.toString();
         }
-        stepEntity.setRecipeId(recipeEntity);
-        stepEntity.setStep(step);
-        stepRepository.save(stepEntity);
+        stepRepository.save(new StepEntity(step, recipeEntity));
         result.put("result", "successful:");
         return result.toString();
     }
+
+    @GetMapping("/selectAll")
+    public String selectAllSteps(){
+        ArrayList<StepEntity> steps = new ArrayList<StepEntity>();
+        Iterable<StepEntity> iterableSteps = stepRepository.findAll();
+        Iterator<StepEntity> stepsIterator = iterableSteps.iterator();
+        while(stepsIterator.hasNext()){
+            steps.add(stepsIterator.next());
+        }
+        JSONObject result = new JSONObject();
+        result.put("result", "successful: ");
+        result.put("steps", steps);
+        return result.toString();
+    }
+
 }

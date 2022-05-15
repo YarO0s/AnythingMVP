@@ -1,34 +1,71 @@
 package com.denisov.anything.recepies;
 
+import com.denisov.anything.products.ProductEntity;
+import com.denisov.anything.steps.StepEntity;
+
 import java.util.ArrayList;
 
 public class ResponseInstance {
 
-    private String result;
+    private RecipeEntity recipeEntity;
+    private String script;
+    private String products;
 
-    private ArrayList<Recipes> recipes;
-
-    public ResponseInstance(String result, ArrayList<Recipes> recipes){
-        this.result = result;
-        this.recipes = recipes;
+    public ResponseInstance(RecipeEntity recipeEntity, ArrayList<StepEntity> steps, ArrayList<ProductEntity> productSet){
+        this.recipeEntity = recipeEntity;
+        String script = "";
+        for(int i = 0; i < steps.size(); i ++){
+            if(i != steps.size()-1){
+                script += steps.get(i) + "\n";
+            } else {
+                script += steps.get(i);
+            }
+        }
+        this.script = script;
+        String products = "";
+        for(int i = 0; i < productSet.size(); i ++){
+            if(i != productSet.size()-1){
+                products += productSet.get(i) + "\n";
+            } else {
+                products += productSet.get(i);
+            }
+        }
+        this.products = products;
     }
 
     public ResponseInstance(){
 
     }
-    public String getResult() {
-        return result;
+
+    public String getScript(){
+        return script;
     }
 
-    public void setResult(String result) {
-        this.result = result;
+    public void setScript(ArrayList<StepEntity> steps){
+        String script = "";
+        for(int i = 0; i < steps.size(); i ++){
+            if(i != steps.size()-1){
+                script += steps.get(i) + "\n";
+            } else {
+                script += steps.get(i);
+            }
+        }
+        this.script = script;
     }
 
-    public ArrayList<Recipes> getRecipes() {
-        return recipes;
+    public String getProducts(){
+        return products;
     }
 
-    public void setRecipes(ArrayList<Recipes> recipes) {
-        this.recipes = recipes;
+    public void setProducts(ArrayList<ProductEntity> productSet){
+        String products = "";
+        for(int i = 0; i < productSet.size(); i ++){
+            if(i != productSet.size()-1){
+                products += productSet.get(i) + "\n";
+            } else {
+                products += productSet.get(i);
+            }
+        }
+        this.products = products;
     }
 }

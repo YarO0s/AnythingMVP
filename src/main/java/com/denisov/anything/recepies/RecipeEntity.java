@@ -14,12 +14,12 @@ public class RecipeEntity {
 
     @Id
     @SequenceGenerator(
-            name = "appUserSequence",
-            sequenceName = "appUserSequence",
+            name = "recipeSequence",
+            sequenceName = "recipeSequence",
             allocationSize = 1
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "appUserSequence")
+            generator = "recipeSequence")
     @Column(name="id")
     private long id;
     @Column(name = "title", nullable = false, unique = true)

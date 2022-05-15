@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 @Service
 public class SetOfProductsService {
@@ -16,15 +17,19 @@ public class SetOfProductsService {
     }
 
     public ArrayList<ProductEntity> getProductsIdByRecipe(RecipeEntity recipeEntity){
-        ArrayList<ProductEntity> arrayList = new ArrayList<ProductEntity>();
+        ArrayList<ProductEntity> requiredProducts = new ArrayList<ProductEntity>();
         if(recipeEntity==null){
-            return arrayList;
+            return requiredProducts;
         }
-        Iterable<SetOfProductsEntity> iterable = setOfProductsRepository.findByRecipeId(recipeEntity);
-        Collection coll = (Collection<?>) iterable;
-        for(int i = 0; i < coll.size(); i++){
-            arrayList.add(iterable.iterator().next().getProductId());
+        Iterator<SetOfProductsEntity> iterable = setOfProductsRepository.findByRecipeId(recipeEntity).iterator();
+        while(iterable.hasNext()){
+            requiredProducts.add(iterable.next().getProductId());
         }
-        return arrayList;
+        return requiredProducts;
+    }
+
+    public void addProductsToRecipe(RecipeEntity recipe, ProductEntity product){
+        SetOfProductsEntity setOfProductsEntity = new SetOfProductsEntity(product, recipe);
+        setOfProductsRepository.save(setOfProductsEntity);
     }
 }

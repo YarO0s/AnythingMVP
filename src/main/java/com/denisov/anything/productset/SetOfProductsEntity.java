@@ -10,12 +10,12 @@ import javax.persistence.*;
 public class SetOfProductsEntity {
 
     @SequenceGenerator(
-            name = "appUserSequence",
-            sequenceName = "appUserSequence",
+            name = "productsSetSequence",
+            sequenceName = "productsSetSequence",
             allocationSize = 1
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "appUserSequence")
+            generator = "productsSetSequence")
     @Id
     private long id;
 

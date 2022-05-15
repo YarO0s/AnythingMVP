@@ -9,12 +9,12 @@ import javax.persistence.*;
 public class StepEntity {
 
     @SequenceGenerator(
-            name = "appUserSequence",
-            sequenceName = "appUserSequence",
+            name = "stepSequence",
+            sequenceName = "stepSequence",
             allocationSize = 1
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "appUserSequence")
+            generator = "stepSequence")
     @Id
     private long id;
     @Column(name="step", unique=false, nullable = false)

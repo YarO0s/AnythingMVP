@@ -4,6 +4,7 @@ import com.denisov.anything.authservice.confirmation.ConfirmationTokenDataMapper
 import com.denisov.anything.authservice.confirmation.ConfirmationTokenEntity;
 import com.denisov.anything.authservice.confirmation.TokenRepository;
 import com.denisov.anything.email.EmailService;
+import org.json.JSONObject;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import com.denisov.anything.security.secretencryption.BCryptSecretEncryption;
@@ -33,6 +34,7 @@ public class UserRegistrationService {
         secretEncoder = new BCryptSecretEncryption();
         String token;
         String email = userToAdd.getEmail();
+        JSONObject jsonObject = new JSONObject();
         try {
             //put user into db
             UserEntity userEntity = userDataMapper.domainToEntity(userToAdd);
@@ -49,14 +51,17 @@ public class UserRegistrationService {
         } catch(DataIntegrityViolationException sqlException){
             sqlException.printStackTrace();
             String message = sqlException.getRootCause().getMessage();
-            return "error: " + message.substring(message.indexOf("(") + 1, message.indexOf(")")) + " already used";
+            jsonObject.put("result", "error: " + message.substring(message.indexOf("(") + 1, message.indexOf(")")) + " already used");
+            return jsonObject.toString();
         }
         try {
             emailService.sendEmail(email, token);
         } catch(Exception e){
-            return "error: provided email is not valid";
+            jsonObject.put("result", "error: provided email is not valid");
+            return jsonObject.toString();
         }
-        return "successful: ";
+        jsonObject.put("result", "successful: successfuly confirmed");
+        return jsonObject.toString();
     }
 
     public String confirmUser(String token){

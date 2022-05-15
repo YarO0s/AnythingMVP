@@ -22,6 +22,6 @@ public class UserRegistrationController {
 
     @PostMapping("/confirm")
     public String confirmUser(@RequestParam("token")String token){
-        return userRegistrationService.confirmUser(token);
+        return new JSONObject().put("result", userRegistrationService.confirmUser(token)).toString();
     }
 }

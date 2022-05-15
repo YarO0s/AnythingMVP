@@ -34,7 +34,6 @@ public class UserRegistrationService {
         secretEncoder = new BCryptSecretEncryption();
         String token;
         String email = userToAdd.getEmail();
-        JSONObject jsonObject = new JSONObject();
         try {
             //put user into db
             UserEntity userEntity = userDataMapper.domainToEntity(userToAdd);
@@ -51,17 +50,14 @@ public class UserRegistrationService {
         } catch(DataIntegrityViolationException sqlException){
             sqlException.printStackTrace();
             String message = sqlException.getRootCause().getMessage();
-            jsonObject.put("result", "error: " + message.substring(message.indexOf("(") + 1, message.indexOf(")")) + " already used");
-            return jsonObject.toString();
+            return "error: " + message.substring(message.indexOf("(") + 1, message.indexOf(")")) + " already used";
         }
         try {
             emailService.sendEmail(email, token);
         } catch(Exception e){
-            jsonObject.put("result", "error: provided email is not valid");
-            return jsonObject.toString();
+            return"error: provided email is not valid";
         }
-        jsonObject.put("result", "successful: successfuly confirmed");
-        return jsonObject.toString();
+        return "successful: successfuly confirmed";
     }
 
     public String confirmUser(String token){

@@ -4,7 +4,7 @@ import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "auth", produces = "text/json")
+@RequestMapping(value = "auth", produces = "application/json")
 public class UserRegistrationController {
     private final UserRegistrationService userRegistrationService;
 

@@ -82,6 +82,8 @@ public class RecipeController {
                 ArrayList<ProductEntity> requiredProducts = setOfProductsService.getProductsIdByRecipe(recipe);
                 ArrayList<StepEntity> script = stepService.getStepsByRecipe(recipe);
                 responseArray.add(new ResponseInstance(recipe, script, requiredProducts));
+                System.out.println(responseArray.get(0).getScript());
+                System.out.println(responseArray.get(0).getProducts());
             }
         } catch (Exception e){
             e.printStackTrace();
@@ -97,42 +99,19 @@ public class RecipeController {
     @PostMapping("/new")
     public String saveRecipe(@RequestParam(name = "name") String name,
                              @RequestParam(name = "description") String description,
-                             @RequestParam(name = "url") String url,
-                             @RequestParam(name = "products") String products,
-                             @RequestParam(name = "script") String script){
+                             @RequestParam(name = "url") String url){
         JSONObject result = new JSONObject();
         ArrayList<ProductEntity> productEntities = null;
         long id = 0;
 
-        try {
-            if(products != "" && products != null) {
-                String[] productSet = products.split(",");
-                productEntities = productService.selectProductsByName(productSet);
-                if (productEntities == null || productEntities.size() == 0) {
-                    result.put("result: ", "error: specified products does not exist");
-                    return result.toString();
-                }
 
-            }
-
-
+        try{
             RecipeEntity recipeEntity = new RecipeEntity();
             recipeEntity.setName(name);
             recipeEntity.setDescription(description);
             recipeEntity.setUrl(url);
             recipeService.save(recipeEntity);
             id = recipeEntity.getId();
-
-            for (ProductEntity product : productEntities) {
-                setOfProductsService.addProductsToRecipe(recipeEntity, product);
-            }
-
-            if(script != "" && script != null){
-                String[] steps = script.split(",");
-                for(String step : steps) {
-                    stepService.save(new StepEntity(step, recipeEntity));
-                }
-            }
 
         } catch(Exception e){
             e.printStackTrace();

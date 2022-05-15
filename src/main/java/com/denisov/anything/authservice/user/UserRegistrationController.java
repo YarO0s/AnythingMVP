@@ -1,9 +1,10 @@
 package com.denisov.anything.authservice.user;
 
+import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("auth")
+@RequestMapping(value = "auth", produces = "text/json")
 public class UserRegistrationController {
     private final UserRegistrationService userRegistrationService;
 
@@ -16,7 +17,7 @@ public class UserRegistrationController {
                                @RequestParam("email")String email,
                                @RequestParam("password")String password){
         User user = new User(name, email, password);
-        return userRegistrationService.registerUser(user);
+        return new JSONObject().put("result", ""+ userRegistrationService.registerUser(user)).toString();
     }
 
     @PostMapping("/confirm")

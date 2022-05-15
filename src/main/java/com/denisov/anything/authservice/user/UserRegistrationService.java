@@ -51,8 +51,12 @@ public class UserRegistrationService {
             String message = sqlException.getRootCause().getMessage();
             return "error: " + message.substring(message.indexOf("(") + 1, message.indexOf(")")) + " already used";
         }
-        emailService.sendEmail(email, token);
-        return "successful";
+        try {
+            emailService.sendEmail(email, token);
+        } catch(Exception e){
+            return "error: provided email is not valid";
+        }
+        return "successful: ";
     }
 
     public String confirmUser(String token){

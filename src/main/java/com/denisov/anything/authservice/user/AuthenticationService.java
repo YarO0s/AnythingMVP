@@ -51,6 +51,8 @@ public class AuthenticationService {
                 String encryptedSecret = passwordEncoder.encrypt(secret);
                 if (passwordEncoder.check(secret, userEntity)) {
                     jwt = jwtService.generateJWT(userEntity);
+                } else {
+                    return "error: password incorrect";
                 }
             } catch(Exception e){
                 e.printStackTrace();

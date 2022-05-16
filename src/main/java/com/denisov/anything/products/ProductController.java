@@ -1,18 +1,20 @@
 package com.denisov.anything.products;
 
 import org.json.JSONObject;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 @RestController
-@RequestMapping("product/")
+@RequestMapping(value ="product/", produces = "application/json")
 public class ProductController {
     private final ProductService productService;
+    private final ProductRepository productRepository;
 
-    public ProductController(ProductService productService){
+    public ProductController(ProductService productService, ProductRepository productRepository){
         this.productService = productService;
+        this.productRepository = productRepository;
     }
 
     @PostMapping("new")
@@ -33,5 +35,22 @@ public class ProductController {
         }
         result.put("result", "successful: generated id: " + id);
         return result.toString();
+    }
+
+    @GetMapping("findAll")
+    public String addProduct(){
+        JSONObject result = new JSONObject();
+        ArrayList<ProductEntity> products = new ArrayList<>();
+        Iterator<ProductEntity> iterator = productRepository.findAll().iterator();
+        while(iterator.hasNext()){
+            products.add(iterator.next());
+        }
+        if(products.size()==0){
+            return new JSONObject().put("result", "error products not found").toString();
+        } else {
+            result.put("result", "successful: ");
+            result.put("products", products);
+            return result.toString();
+        }
     }
 }

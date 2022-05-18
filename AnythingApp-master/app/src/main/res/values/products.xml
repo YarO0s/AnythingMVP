@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="products">
+        <item>Bacon</item>
+        <item>Banana</item>
+        <item>Beef</item>
+        <item>Butter</item>
+        <item>Buttermilk</item>
+        <item>Canola oil</item>
+        <item>Carrot</item>
+        <item>Cauliflower</item>
+        <item>Celery</item>
+        <item>Cheddar cheese</item>
+        <item>Chicken</item>
+        <item>Chicken bouillon</item>
+        <item>Corn</item>
+        <item>Cornmeal</item>
+        <item>Cottage cheese</item>
+        <item>Cracker</item>
+        <item>Egg</item>
+        <item>Flour</item>
+        <item>Gelatin</item>
+        <item>Gravy</item>
+        <item>Ketchup</item>
+        <item>Milk</item>
+        <item>Mozarella cheese</item>
+        <item>Mozarella</item>
+        <item>Mushroom</item>
+        <item>Mustard</item>
+        <item>Oat</item>
+        <item>Onion</item>
+        <item>Parmesan cheese</item>
+        <item>Parsley</item>
+        <item>Pepper</item>
+        <item>Pepper sauce</item>
+        <item>Pie</item>
+        <item>Potato</item>
+        <item>Powder</item>
+        <item>Red pepper</item>
+        <item>Salad</item>
+        <item>Salt</item>
+        <item>Soda</item>
+        <item>Sufar</item>
+        <item>Sugar</item>
+        <item>Swiss cheese</item>
+        <item>Thyme</item>
+        <item>Tomato sauce</item>
+        <item>Topping</item>
+        <item>Vanilla</item>
+        <item>Walnuts cheese</item>
+        <item>Water</item>
+        <item>Yogurt</item>
+        <item>Zucchini</item>
+    </string-array>
+</resources>

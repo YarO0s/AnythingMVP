@@ -1,0 +1,22 @@
+
+M
+java:S1135$"2Complete the task associated to this TODO comment.(ÊâÖˆùÿÿÿÿ
+M
+java:S1135'"2Complete the task associated to this TODO comment.(´èÌ“ùÿÿÿÿ
+S	java:S106U"9Replace this use of System.out or System.err by a logger.(ÈáÒÆùÿÿÿÿ
+S	java:S106V"9Replace this use of System.out or System.err by a logger.(±±Ôãüÿÿÿÿ
+O
+java:S1481h"4Remove this unused "productEntities" local variable.(á±æ»ùÿÿÿÿ
+i
+java:S1128"LRemove this unused import 'com.denisov.anything.products.ProductRepository'.(şÿÎè8íå‹ØŒ0
+N
+java:S1128	"1Remove this unused import 'com.google.gson.Gson'.(–§8ğå‹ØŒ0
+Q
+java:S1128
+"/Remove this unused import 'org.json.JSONArray'.(¬¸Ê’üÿÿÿÿ8òå‹ØŒ0
+f
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8öå‹ØŒ0
+t
+java:S2293P"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıæ¯ïÿÿÿÿÿ
+b
+java:S1192+"GDefine a constant instead of duplicating this literal "result" 8 times.(óÆˆùÿÿÿÿ

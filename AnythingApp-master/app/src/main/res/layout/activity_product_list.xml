@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ProductList_activity">
+    <!--Блок поиска-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="start"-->
+<!--        android:padding="3pt"-->
+<!--        android:layout_marginBottom="10pt">-->
+<!--        <ImageView-->
+<!--            android:id="@+id/searchIcon"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="start"-->
+<!--            android:layout_marginStart="7pt"-->
+<!--            android:layout_marginEnd="2pt"-->
+<!--            android:src="@drawable/ic_search">-->
+<!--        </ImageView>-->
+<!--        <EditText-->
+<!--            android:id="@+id/searchText"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="10"-->
+<!--            android:inputType="text"-->
+<!--            android:maxLength="200"-->
+<!--            android:visibility="invisible"/>-->
+
+<!--    </LinearLayout>-->
+
+<TextView
+    android:id="@+id/hint"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10pt"
+    android:layout_marginBottom="10pt"
+    android:textAlignment="center"
+    android:text="TAP to choose product you have"
+    android:textSize="18sp">
+
+</TextView>
+    <!--///////////////////////////////////////////////////-->
+
+    <!--Блок продуктов-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="210pt"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20pt">
+        <!--Блок предложенных продуктов-->
+
+<LinearLayout
+    android:layout_width="85pt"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:layout_marginStart="7pt">
+        <TextView
+            android:id="@+id/productsHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product list:"
+            android:layout_marginBottom="3pt"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/productList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:scrollbars="none"
+            android:listSelector="@color/white"
+           ></ListView>
+
+</LinearLayout>
+
+    <!--//////////////////////////////////////////////////////////-->
+    <!--Блок выбранных продуктов-->
+        <LinearLayout
+            android:layout_width="85pt"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginEnd="7pt">
+    <TextView
+        android:id="@+id/productPickedHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Picked products:"
+        android:layout_marginBottom="3pt"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/productPickedList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:scrollbars="none"
+        android:listSelector="@color/white"
+        ></ListView>
+        </LinearLayout>
+    </LinearLayout>
+    <!--/////////////////////////////////////-->
+    <Button
+        android:id="@+id/findButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#F3AE30"
+        android:padding="5dp"
+        android:text="Find recepies"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="50px" />
+
+
+
+
+</LinearLayout>

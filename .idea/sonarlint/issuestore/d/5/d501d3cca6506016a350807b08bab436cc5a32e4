@@ -1,0 +1,35 @@
+
+U
+java:S1117":Rename "script" which hides the field declared at line 12.(Åÿšëýÿÿÿÿ
+W
+java:S1117"<Rename "products" which hides the field declared at line 13.(ÿû®Èøÿÿÿÿ
+U
+java:S1117.":Rename "script" which hides the field declared at line 12.(Åÿšëýÿÿÿÿ
+W
+java:S1117>"<Rename "products" which hides the field declared at line 13.(ÿû®Èøÿÿÿÿ
+N
+java:S1128"1Remove this unused import 'com.google.gson.Gson'.(–§8•ðË¶Œ0
+€
+java:S1319"eThe type of "steps" should be an interface such as "List" rather than the implementation "ArrayList".(÷Ç©¶ÿÿÿÿÿ
+…
+java:S1319"jThe type of "productSet" should be an interface such as "List" rather than the implementation "ArrayList".(÷Ç©¶ÿÿÿÿÿ
+€
+java:S1319-"eThe type of "steps" should be an interface such as "List" rather than the implementation "ArrayList".(²ìõÎüÿÿÿÿ
+…
+java:S1319="jThe type of "productSet" should be an interface such as "List" rather than the implementation "ArrayList".(é³ô½ýÿÿÿÿ
+7
+java:S1643"Use a StringBuilder instead.(ÔÆÝ®ýÿÿÿÿ
+7
+java:S1643"Use a StringBuilder instead.(ˆÜÎŽúÿÿÿÿ
+2
+java:S1643"Use a StringBuilder instead.(Âç“†
+7
+java:S1643"Use a StringBuilder instead.(²í©Þúÿÿÿÿ
+7
+java:S16431"Use a StringBuilder instead.(ÔÆÝ®ýÿÿÿÿ
+7
+java:S16433"Use a StringBuilder instead.(ˆÜÎŽúÿÿÿÿ
+2
+java:S1643A"Use a StringBuilder instead.(Âç“†
+7
+java:S1643C"Use a StringBuilder instead.(²í©Þúÿÿÿÿ

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Anything/app/src/main/res/drawable-anydpi/searchButton.xml" value="0.1335" />
+        <entry key="..\:/Anything/app/src/main/res/drawable/ic_baseline_kitchen_24.xml" value="0.1335" />
+        <entry key="..\:/Anything/app/src/main/res/drawable/ic_fridge.xml" value="0.1335" />
+        <entry key="..\:/Anything/app/src/main/res/drawable/ic_search.xml" value="0.1335" />
+        <entry key="..\:/Anything/app/src/main/res/drawable/input_border.xml" value="0.2985" />
+        <entry key="..\:/Anything/app/src/main/res/drawable/search.xml" value="0.1335" />
+        <entry key="..\:/Anything/app/src/main/res/drawable/search_svg.xml" value="0.1335" />
+        <entry key="..\:/Anything/app/src/main/res/layout/activity_detail_recipe.xml" value="0.5862068965517241" />
+        <entry key="..\:/Anything/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Anything/app/src/main/res/layout/activity_product_list.xml" value="0.5876623376623377" />
+        <entry key="..\:/Anything/app/src/main/res/layout/activity_recepeis.xml" value="0.5862068965517241" />
+        <entry key="..\:/Anything/app/src/main/res/layout/product.xml" value="0.5862068965517241" />
+        <entry key="..\:/Anything/app/src/main/res/layout/recycler_item.xml" value="0.5989159891598916" />
+        <entry key="..\:/Users/yard7/Downloads/AnythingApp-master/app/src/main/res/drawable/footer.xml" value="0.136" />
+        <entry key="..\:/Users/yard7/Downloads/AnythingApp-master/app/src/main/res/drawable/ic_baseline_keyboard_arrow_up_24.xml" value="0.137" />
+        <entry key="..\:/Users/yard7/Downloads/AnythingApp-master/app/src/main/res/drawable/input_box1.xml" value="0.136" />
+        <entry key="..\:/Users/yard7/Downloads/AnythingApp-master/app/src/main/res/drawable/input_box2.xml" value="0.136" />
+        <entry key="..\:/Users/yard7/Downloads/AnythingApp-master/app/src/main/res/layout/activity_confirmation.xml" value="0.1" />
+        <entry key="..\:/Users/yard7/Downloads/AnythingApp-master/app/src/main/res/layout/activity_detail_recipe.xml" value="0.1265625" />
+        <entry key="..\:/Users/yard7/Downloads/AnythingApp-master/app/src/main/res/layout/activity_main.xml" value="0.1265625" />
+        <entry key="..\:/Users/yard7/Downloads/AnythingApp-master/app/src/main/res/layout/activity_product_list.xml" value="0.1265625" />
+        <entry key="..\:/Users/yard7/Downloads/AnythingApp-master/app/src/main/res/layout/activity_recepeis.xml" value="0.1265625" />
+        <entry key="..\:/Users/yard7/Downloads/AnythingApp-master/app/src/main/res/layout/activity_sign_up.xml" value="0.152" />
+        <entry key="..\:/Users/yard7/Downloads/AnythingApp-master/app/src/main/res/layout/recycler_item.xml" value="0.1265625" />
+        <entry key="..\:/Users/yard7/Downloads/AnythingApp-master/app/src/main/res/menu/menu_recepeis_activity.xml" value="0.1265625" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.46924603174603174" />
+        <entry key="app/src/main/res/layout/activity_product_list.xml" value="0.61875" />
+        <entry key="app/src/main/res/layout/activity_recepeis.xml" value="0.61875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

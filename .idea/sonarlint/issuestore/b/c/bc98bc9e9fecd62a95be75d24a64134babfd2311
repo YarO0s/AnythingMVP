@@ -1,0 +1,13 @@
+
+w
+java:S1450"\Remove the "secretEncoder" field and declare it as a local variable in the relevant methods.(ýà‡Ðÿÿÿÿÿ
+M
+java:S1135 "2Complete the task associated to this TODO comment.(¦ÇÈöûÿÿÿÿ
+R
+java:S1128"0Remove this unused import 'org.json.JSONObject'.(œÖ´üþÿÿÿÿ8ºŸ‰ÈŒ0
+U
+java:S1068"?Remove this unused "confirmationTokenDataMapper" private field.(óòüÔ
+f
+java:S22594"KA "NullPointerException" could be thrown; "getRootCause()" can return null.( ’¤”ùÿÿÿÿ
+Y
+java:S3655F">Call "optConfirmation.isPresent()" before accessing the value.(µš®‘üÿÿÿÿ

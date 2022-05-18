@@ -1,0 +1,14 @@
+
+N	java:S106"9Replace this use of System.out or System.err by a logger.(–ñ·á
+N
+java:S1128"1Remove this unused import 'com.google.gson.Gson'.(–§8®÷Í°Œ0
+q
+java:S1128"ORemove this unused import 'org.springframework.data.repository.CrudRepository'.(Îê¶¬üÿÿÿÿ8¯÷Í°Œ0
+h
+java:S1128"FRemove this unused import 'org.springframework.stereotype.Controller'.(øŠ—Öùÿÿÿÿ8¯÷Í°Œ0
+o
+java:S22931"YReplace the type specification in this constructor call with the diamond operator ("<>").( “áß
+b
+java:S1192$"GDefine a constant instead of duplicating this literal "result" 4 times.(‘©È’şÿÿÿÿ
+R
+java:S3655!"7Call "Optional#isPresent()" before accessing the value.(“¹€úÿÿÿÿ
